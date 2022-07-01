@@ -25,21 +25,16 @@ def getAngle(pointsList):
     m2 = gradient(pt1,pt3)
     angR = math.atan((m2-m1)/(1+(m2*m1)))
     angD = round(math.degrees(angR))
- 
-    cv2.putText(img,str(angD),(pt1[0]-40,pt1[1]-20),cv2.FONT_HERSHEY_COMPLEX,
-                1.5,(0,0,255),2)
+    cv2.putText(img,str(angD),(pt1[0]-40,pt1[1]-20),cv2.FONT_HERSHEY_COMPLEX,1.5,(0,0,255),2)
  
 while True:
- 
- 
-    if len(pointsList) % 3 == 0 and len(pointsList) !=0:
-        getAngle(pointsList)
- 
-    cv2.imshow('Image',img)
-    cv2.setMouseCallback('Image',mousePoints)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        pointsList = []
-        img = cv2.imread(path)
+if len(pointsList) % 3 == 0 and len(pointsList) !=0:
+getAngle(pointsList)
+cv2.imshow('Image',img)
+cv2.setMouseCallback('Image',mousePoints)
+if cv2.waitKey(1) & 0xFF == ord('q'):
+pointsList = []
+img = cv2.imread(path)
 ## Output:
 ![Screenshot (247)](https://user-images.githubusercontent.com/75234946/176812286-c14296b3-3693-4bb8-92fb-55494582ce6d.png)
 
